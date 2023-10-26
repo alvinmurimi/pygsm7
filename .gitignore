@@ -1,0 +1,7 @@
+__pycache__/
+dist/
+.eggs/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
