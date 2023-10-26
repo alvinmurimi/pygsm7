@@ -14,10 +14,10 @@ pygsm7 is a Python package that provides functions for encoding and decoding mes
 
 ## Installation
 
-You can install pygsm7 using `pip3`:
+You can install pygsm7 using `pip`:
 
 ```bash
-pip3 install pygsm7
+pip install pygsm7
 ```
 
 ## Usage
