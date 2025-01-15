@@ -1,4 +1,8 @@
 # PYGSM7
+![License](https://img.shields.io/github/license/alvinmurimi/pygsm7)
+![PyPI Downloads](https://img.shields.io/pypi/dm/pygsm7)
+![Version](https://img.shields.io/pypi/v/pygsm7)
+
 
 pygsm7 is a Python package that provides functions for encoding and decoding messages using GSM 7-bit encoding. It is designed to facilitate the processing of text messages in the context of SMS and mobile communication.
 
