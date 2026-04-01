@@ -3,7 +3,9 @@
 ![PyPI Downloads](https://img.shields.io/pypi/dm/pygsm7)
 ![Version](https://img.shields.io/pypi/v/pygsm7)
 
-`pygsm7` provides two text-encoding workflows that are common in SMS and modem projects:
+pygsm7 is a Python package that provides functions for encoding and decoding messages using GSM 7-bit encoding. It is designed to facilitate the processing of text messages in the context of SMS and mobile communication.
+
+It also provides two text-encoding workflows that are common in SMS and modem projects:
 
 - Full-Unicode hex encoding and decoding through `pygsm7.encode()` and `pygsm7.decode()`
 - True packed GSM 03.38 7-bit encoding and decoding through `pygsm7.encode_gsm7()` and `pygsm7.decode_gsm7()`
@@ -31,7 +33,7 @@ Use `encode()` and `decode()` when you need full Unicode coverage.
 ```python
 import pygsm7
 
-encoded = pygsm7.encode("Hello 😀")
+encoded = pygsm7.encode("Hello \\U0001F600")
 decoded = pygsm7.decode(encoded)
 
 print(encoded)
@@ -45,7 +47,7 @@ Use `encode_gsm7()` and `decode_gsm7()` for packed GSM 03.38 payloads.
 ```python
 import pygsm7
 
-packed = pygsm7.encode_gsm7("Hello {world} €")
+packed = pygsm7.encode_gsm7("Hello {world} \\u20AC")
 decoded = pygsm7.decode_gsm7(packed)
 
 print(packed)
@@ -57,7 +59,7 @@ print(decoded)
 The GSM 03.38 extension table includes:
 
 ```text
-^ { } \ [ ] ~ | € form-feed
+^ { } \ [ ] ~ | \u20AC \f
 ```
 
 ## Contributing
