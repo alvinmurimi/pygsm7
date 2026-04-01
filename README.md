@@ -33,7 +33,7 @@ Use `encode()` and `decode()` when you need full Unicode coverage.
 ```python
 import pygsm7
 
-encoded = pygsm7.encode("Hello \\U0001F600")
+encoded = pygsm7.encode("Hello world")
 decoded = pygsm7.decode(encoded)
 
 print(encoded)
