@@ -3,19 +3,20 @@
 ![PyPI Downloads](https://img.shields.io/pypi/dm/pygsm7)
 ![Version](https://img.shields.io/pypi/v/pygsm7)
 
+`pygsm7` provides two text-encoding workflows that are common in SMS and modem projects:
 
-pygsm7 is a Python package that provides functions for encoding and decoding messages using GSM 7-bit encoding. It is designed to facilitate the processing of text messages in the context of SMS and mobile communication.
+- Full-Unicode hex encoding and decoding through `pygsm7.encode()` and `pygsm7.decode()`
+- True packed GSM 03.38 7-bit encoding and decoding through `pygsm7.encode_gsm7()` and `pygsm7.decode_gsm7()`
 
 ## Features
 
-- Encode text messages into GSM 7-bit format.
-- Decode GSM 7-bit encoded messages into readable text.
-- Handle special characters commonly used in text messages.
-- Convert between Unicode and GSM 7-bit character sets.
+- Round-trip full Unicode text, including emoji and control characters, as uppercase UTF-16BE hex
+- Encode and decode packed GSM 7-bit payloads using the GSM 03.38 default and extension tables
+- Keep the API small and easy to use for scripts, modem integrations, and SMS tooling
 
 ## Installation
 
-You can install pygsm7 using `pip`:
+Install `pygsm7` with `pip`:
 
 ```bash
 pip install pygsm7
@@ -23,30 +24,50 @@ pip install pygsm7
 
 ## Usage
 
-Here's how to use pygsm7 in your Python code:
+### Unicode Hex
 
-```
+Use `encode()` and `decode()` when you need full Unicode coverage.
+
+```python
 import pygsm7
 
-# Encoding a text message into GSM 7-bit format
-encoded_message = pygsm7.encode("Hello, world!")
+encoded = pygsm7.encode("Hello 😀")
+decoded = pygsm7.decode(encoded)
 
-# Decoding a GSM 7-bit encoded message
-decoded_message = pygsm7.decode(encoded_message)
-
-print("Encoded Message:", encoded_message)
-print("Decoded Message:", decoded_message)
-
+print(encoded)
+print(decoded)
 ```
 
-## GSM 7-bit Character Tables
-This module includes predefined GSM 7-bit character tables and handling of special characters. You can customize the character tables and special characters to suit your needs.
+### GSM 7-Bit
 
-### Contributing
-Pull requests and issues are welcome. Refer to [CONTRIBUTING.md](./CONTRIBUTING.md)
+Use `encode_gsm7()` and `decode_gsm7()` for packed GSM 03.38 payloads.
 
-### Security Vulnerabilities
-If you discover any security vulnerability, please send an e-mail to alvinmayende@gmail.com.
+```python
+import pygsm7
 
-### License
+packed = pygsm7.encode_gsm7("Hello {world} €")
+decoded = pygsm7.decode_gsm7(packed)
+
+print(packed)
+print(decoded)
+```
+
+## Supported GSM 7-Bit Extension Characters
+
+The GSM 03.38 extension table includes:
+
+```text
+^ { } \ [ ] ~ | € form-feed
+```
+
+## Contributing
+
+Pull requests and issues are welcome. Refer to [CONTRIBUTING.md](./CONTRIBUTING.md).
+
+## Security Vulnerabilities
+
+If you discover a security vulnerability, please send an e-mail to alvinmayende@gmail.com.
+
+## License
+
 This package is open-source software licensed under the [MIT license](LICENSE.md).
