@@ -54,14 +54,6 @@ print(packed)
 print(decoded)
 ```
 
-## Supported GSM 7-Bit Extension Characters
-
-The GSM 03.38 extension table includes:
-
-```text
-^ { } \ [ ] ~ | \u20AC \f
-```
-
 ## Contributing
 
 Pull requests and issues are welcome. Refer to [CONTRIBUTING.md](./CONTRIBUTING.md).
