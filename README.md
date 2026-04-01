@@ -26,13 +26,13 @@ pip install pygsm7
 Here's how to use pygsm7 in your Python code:
 
 ```
-from pygsm7 import encodeMessage, decodeMessage
+import pygsm7
 
 # Encoding a text message into GSM 7-bit format
-encoded_message = encodeMessage("Hello, world!")
+encoded_message = pygsm7.encode("Hello, world!")
 
 # Decoding a GSM 7-bit encoded message
-decoded_message = decodeMessage(encoded_message)
+decoded_message = pygsm7.decode(encoded_message)
 
 print("Encoded Message:", encoded_message)
 print("Decoded Message:", decoded_message)

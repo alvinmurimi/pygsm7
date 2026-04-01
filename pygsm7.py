@@ -25,6 +25,8 @@ GSM7_Table_Extend = [
 specialChars = ["000D", "000A", "0009", "0000"]
 specialCharsIgnoreWrap = ["0009", "0000"]
 
+__all__ = ["encode", "decode", "encodeMessage", "decodeMessage"]
+
 def encodeMessage(e):
     d = 0
     c = ""
@@ -69,6 +71,12 @@ def decodeMessage(c):
             result += hex2char(hex_code)
 
     return result
+
+def encode(message):
+    return encodeMessage(message)
+
+def decode(message):
+    return decodeMessage(message)
 
 def dec2hex(a):
     return hex(a).upper()[2:]
